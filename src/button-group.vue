@@ -3,13 +3,22 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    for (let node of this.$el.children) {
+      let name = node.nodeName.toLowerCase();
+      if (name !== "button") {
+        console.warn(
+          `g-button-group的子元素应该全是g-button,但是你写了${name}`
+        );
+      }
+    }
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 .g-button-group {
-  /* border: 1px solid black;
-  border-radius: 5px; */
   display: inline-flex;
   vertical-align: middle;
 
