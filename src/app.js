@@ -9,8 +9,8 @@ Vue.component("g-button-group", ButtonGroup);
 new Vue({
   el: "#app",
   data: {
-    loading1: true,
-    loading2: true,
-    loading3: true,
+    loading1: false,
+    loading2: false,
+    loading3: false,
   },
 });
