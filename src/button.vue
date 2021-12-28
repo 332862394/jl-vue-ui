@@ -1,11 +1,12 @@
 <template>
   <button class="g-button" :class="{ [`icon-${iconPosition}`]: true }">
-    <svg class="icon" v-if="icon"><use :xlink:href="`#i-${icon}`" /></svg>
+    <g-icon :icon-name="icon" v-if="icon"></g-icon>
     <div class="content"><slot /></div>
   </button>
 </template>
 
 <script>
+import Icon from "./icon.vue";
 export default {
   props: {
     icon: {},
@@ -17,6 +18,7 @@ export default {
       },
     },
   },
+  components: { Icon },
 };
 </script>
 
@@ -59,9 +61,5 @@ export default {
       order: 1;
     }
   }
-}
-.icon {
-  width: 1em;
-  height: 1em;
 }
 </style>
