@@ -14,6 +14,13 @@ new Vue({
     loading1: false,
     loading2: false,
     loading3: false,
+    vt: "test",
+  },
+  methods: {
+    inputChange(v) {
+      console.log("object:", v.target.value);
+      this.vt = v.target.value;
+    },
   },
 });
 
