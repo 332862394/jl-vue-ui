@@ -28,40 +28,59 @@
         font-size: var(--font-size);
       }
     </style>
+    <style>
+      .box {
+        margin: 20px;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
-      <g-input value="张三" disabled></g-input>
-      <g-input value="张三" readonly></g-input>
-      <g-input v-model="vt"></g-input>
+      <g-row><g-col></g-col> <g-col></g-col></g-row>
+      <g-row><g-col></g-col> <g-col></g-col><g-col></g-col></g-row>
+      <g-row
+        ><g-col></g-col> <g-col></g-col><g-col></g-col><g-col></g-col
+      ></g-row>
+      <g-row><g-col span="2"></g-col> <g-col span="22"></g-col></g-row>
+      <g-row><g-col span="4"></g-col> <g-col span="20"></g-col></g-row>
 
-      <g-button
-        :loading="loading1"
-        @click="
+      <hr />
+      <div class="box">
+        <g-input value="张三" disabled></g-input>
+        <g-input value="张三" readonly></g-input>
+        <g-input v-model="vt"></g-input>
+      </div>
+      <hr />
+      <div class="bnox"><g-icon icon-name="settings"></g-icon></div>
+      <hr />
+      <div class="box">
+        <g-button
+          :loading="loading1"
+          @click="
       loading1=!loading1"
-        >按钮</g-button
-      >
-      <g-button
-        :loading="loading2"
-        icon="settings"
-        @click="
+          >按钮</g-button
+        >
+        <g-button
+          :loading="loading2"
+          icon="settings"
+          @click="
         loading2=!loading2"
-        >按钮</g-button
-      >
-      <g-button
-        :loading="loading3"
-        @click="
+          >按钮</g-button
+        >
+        <g-button
+          :loading="loading3"
+          @click="
       loading3=!loading3"
-        icon="settings"
-        icon-position="right"
-        >按钮</g-button
-      >
-      <g-icon icon-name="settings"></g-icon>
-      <g-button-group>
-        <g-button icon="left">上一页</g-button>
-        <g-button>更多</g-button>
-        <g-button icon="right">下一页</g-button>
-      </g-button-group>
+          icon="settings"
+          icon-position="right"
+          >按钮</g-button
+        >
+        <g-button-group>
+          <g-button icon="left">上一页</g-button>
+          <g-button>更多</g-button>
+          <g-button icon="right">下一页</g-button>
+        </g-button-group>
+      </div>
     </div>
     <script src="./src/app.js"></script>
   </body>
