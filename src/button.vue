@@ -4,16 +4,8 @@
     :class="{ [`icon-${iconPosition}`]: true }"
     @click="$emit('click')"
   >
-    <g-icon
-      :icon-name="icon"
-      v-if="icon && loading === false"
-      class="icon"
-    ></g-icon>
-    <g-icon
-      iconName="loading"
-      class="loading icon"
-      v-if="loading === true"
-    ></g-icon>
+    <g-icon :icon-name="icon" v-if="icon && !loading" class="icon"></g-icon>
+    <g-icon iconName="loading" class="loading icon" v-if="loading"></g-icon>
     <div class="content">
       <slot />
     </div>
@@ -21,8 +13,11 @@
 </template>
 
 <script>
-import Icon from "./icon.vue";
+import Icon from "./icon";
 export default {
+  components: {
+    "g-icon": Icon,
+  },
   props: {
     icon: {},
     iconPosition: {
@@ -37,13 +32,12 @@ export default {
       default: false,
     },
   },
-  components: { Icon },
 };
 </script>
 
 <style lang="scss" scoped>
-$button-height: 32px;
 $font-size: 14px;
+$button-height: 32px;
 $button-bg: white;
 $button-active-bg: #eee;
 $border-radius: 4px;
@@ -66,7 +60,6 @@ $border-color-hover: #666;
   border: 1px solid $border-color;
   background: $button-bg;
   display: inline-flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   vertical-align: middle;
