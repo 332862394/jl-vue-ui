@@ -5,14 +5,16 @@ import ButtonGroup from "./button-group.vue";
 import Input from "./input.vue";
 import Row from "./row.vue";
 import Col from "./col.vue";
-
+import Toast from "./toast.vue";
+import plugin from "./plugin";
 Vue.component("g-button", Button);
 Vue.component("g-icon", Icon);
 Vue.component("g-button-group", ButtonGroup);
 Vue.component("g-input", Input);
 Vue.component("g-row", Row);
 Vue.component("g-col", Col);
-
+Vue.component("g-toast", Toast);
+Vue.use(plugin);
 new Vue({
   el: "#app",
   data: {
@@ -21,10 +23,32 @@ new Vue({
     loading3: false,
     vt: "test",
   },
+
   methods: {
-    inputChange(v) {
-      console.log("object:", v.target.value);
-      this.vt = v.target.value;
+    showToast1() {
+      this.showToast("top");
+    },
+    showToast2() {
+      this.showToast("middle");
+    },
+    showToast3() {
+      this.showToast("bottom");
+    },
+    showToast(position) {
+      this.$toast(
+        `你的智商目前为 ${parseInt(Math.random() * 100)}。你的智商需要充值！`,
+        {
+          position,
+          enableHtml: false,
+          closeButton: {
+            text: "已充值",
+            callback() {
+              console.log("他说已经充值智商了");
+            },
+          },
+          autoClose: 3,
+        }
+      );
     },
   },
 });
