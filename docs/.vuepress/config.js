@@ -1,4 +1,5 @@
 module.exports = {
+  base: "/jl-vue-ui/",
   title: "jl-vue-ui",
   description: "一个好用的UI框架",
   themeConfig: {
@@ -9,7 +10,14 @@ module.exports = {
     // ],
     sidebar: [
       { title: "入门", children: ["/install/", "/get-started/"] },
-      { title: "组件", children: ["/components/button"] },
+      {
+        title: "组件",
+        children: [
+          "/components/button",
+          "/components/input",
+          "/components/toast",
+        ],
+      },
     ],
   },
 };
